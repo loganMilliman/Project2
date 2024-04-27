@@ -1,30 +1,28 @@
 public class Astronaut {
     private String name;
     private String dateOfBirth;
-    private String IDNumber;
+    private String IDnumb;
     private String address;
     private String email;
-    private String phoneNumber;
+    private String phoneNumb;
     private String nextOfKin;
     private String status;
-    private double payRate;
+    private double salary;
     private double weight;
 
-    // Constructor
-    public Astronaut(String name, String dateOfBirth, String IDNumber, String address, String email, String phoneNumber, String nextOfKin, String status, double payRate, double weight) {
+    public Astronaut(String name, String dateOfBirth, String IDnumb, String address, String email, String phoneNumb, String nextOfKin, String status, double salary, double weight) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
-        this.IDNumber = IDNumber;
+        this.IDnumb = IDnumb;
         this.address = address;
         this.email = email;
-        this.phoneNumber = phoneNumber;
+        this.phoneNumb = phoneNumb;
         this.nextOfKin = nextOfKin;
         this.status = status;
-        this.payRate = payRate;
+        this.salary = salary;
         this.weight = weight;
     }
 
-    // Getters and setters
     public String getName() {
         return name;
     }
@@ -41,12 +39,12 @@ public class Astronaut {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getIDNumber() {
-        return IDNumber;
+    public String getIDnumb() {
+        return IDnumb;
     }
 
-    public void setIDNumber(String IDNumber) {
-        this.IDNumber = IDNumber;
+    public void setIDnumb(String IDnumb) {
+        this.IDnumb = IDnumb;
     }
 
     public String getAddress() {
@@ -65,12 +63,12 @@ public class Astronaut {
         this.email = email;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhoneNumb() {
+        return phoneNumb;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhoneNumb(String phoneNumb) {
+        this.phoneNumb = phoneNumb;
     }
 
     public String getNextOfKin() {
@@ -89,12 +87,12 @@ public class Astronaut {
         this.status = status;
     }
 
-    public double getPayRate() {
-        return payRate;
+    public double getSalary() {
+        return salary;
     }
 
-    public void setPayRate(double payRate) {
-        this.payRate = payRate;
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 
     public double getWeight() {
@@ -102,6 +100,18 @@ public class Astronaut {
     }
 
     public void setWeight(double weight) {
+        this.weight = weight;
+    }
+    public void updateAstronautInfo(String name, String dateOfBirth, String IDnumb, String address, String email, String phoneNumb, String nextOfKin, String status, double salary, double weight) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.IDnumb = IDnumb;
+        this.address = address;
+        this.email = email;
+        this.phoneNumb = phoneNumb;
+        this.nextOfKin = nextOfKin;
+        this.status = status;
+        this.salary = salary;
         this.weight = weight;
     }
 }
