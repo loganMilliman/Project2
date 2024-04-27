@@ -12,7 +12,8 @@ public class Main {
         } else {
             // If password exists, prompt user for password verification
             System.out.println("Enter your password to continue:");
-            boolean isPasswordCorrect = PasswordManager.verifyPassword();
+            String enteredPassword = kbd.nextLine();
+            boolean isPasswordCorrect = PasswordManager.verifyPassword(enteredPassword);
             if (!isPasswordCorrect) {
                 System.out.println("Incorrect password. Access denied.");
                 kbd.close();
@@ -29,7 +30,7 @@ public class Main {
         MissionInventory missionInventory = new MissionInventory(1000, 3); // Initial rocket fuel: 1000 pounds, Initial number of rockets: 3
 
         // Launch mission if verification is successful
-        if (VerificationSystem.verifyAction()) {
+        if (verifyAction()) {
             // Perform launch process
             MissionLaunch missionLaunch = new MissionLaunch(missionInventory, new Astronaut[]{astronaut1, astronaut2});
             missionLaunch.initiateLaunch();
@@ -39,5 +40,15 @@ public class Main {
 
         // Close scanner
         kbd.close();
+    }
+    public static boolean verifyAction() {
+        boolean flag = false;
+        Scanner kbd = new Scanner(System.in);
+        System.out.println("Are you sure you want to do this? Y or N");
+        if (kbd.nextLine() == "Y") {
+            flag = true;
+        }
+        kbd.close();
+        return flag;
     }
 }
