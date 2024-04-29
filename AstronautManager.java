@@ -17,24 +17,58 @@ public class AstronautManager {
         System.out.println("Adding new astronaut:");
         System.out.print("Enter name: ");
         String name = scanner.nextLine();
-        System.out.print("Enter date of birth (YYYY-MM-DD): ");
-        String dob = scanner.nextLine();
+
+        // Validate date of birth input
+        String dob;
+        do {
+            System.out.print("Enter date of birth (YYYY-MM-DD): ");
+            dob = scanner.nextLine();
+        } while (!DataValidator.isValidDateOfBirth(dob));
+
         System.out.print("Enter ID: ");
         String id = scanner.nextLine();
         System.out.print("Enter address: ");
         String address = scanner.nextLine();
-        System.out.print("Enter email: ");
-        String email = scanner.nextLine();
-        System.out.print("Enter phone number: ");
-        String phone = scanner.nextLine();
+
+        // Validate email input
+        String email;
+        do {
+            System.out.print("Enter email (e.g., example@example.com): ");
+            email = scanner.nextLine();
+        } while (!DataValidator.isValidEmail(email));
+
+        // Validate phone number input
+        String phone;
+        do {
+            System.out.print("Enter phone number (e.g., 123-456-7890): ");
+            phone = scanner.nextLine();
+        } while (!DataValidator.isValidPhoneNumber(phone));
+
         System.out.print("Enter emergency contact: ");
         String emergencyContact = scanner.nextLine();
         System.out.print("Enter status: ");
         String status = scanner.nextLine();
-        System.out.print("Enter salary: ");
-        double salary = Double.parseDouble(scanner.nextLine());
-        System.out.print("Enter weight: ");
-        double weight = Double.parseDouble(scanner.nextLine());
+        double salary;
+        do {
+            System.out.print("Enter salary (positive number): ");
+            while (!scanner.hasNextDouble()) {
+                System.out.println("Invalid input. Please enter a valid salary.");
+                scanner.next(); // discard non-double input
+            }
+            salary = scanner.nextDouble();
+            scanner.nextLine(); // Consume newline left-over
+        } while (salary <= 0);
+
+        double weight;
+        do {
+            System.out.print("Enter weight (positive number): ");
+            while (!scanner.hasNextDouble()) {
+                System.out.println("Invalid input. Please enter a valid weight.");
+                scanner.next(); // discard non-double input
+            }
+            weight = scanner.nextDouble();
+            scanner.nextLine(); // Consume newline left-over
+        } while (weight <= 0);
 
         Astronaut newAstronaut = new Astronaut(name, dob, id, address, email, phone, emergencyContact, status, salary, weight);
         astronauts.add(newAstronaut);

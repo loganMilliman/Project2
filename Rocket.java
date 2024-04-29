@@ -30,4 +30,9 @@ public class Rocket {
     public void checkInventory() {
         System.out.println("Current Rocket Fuel: " + rocketFuel + " pounds");
     }
+
+    // Method to check if there's enough fuel to launch
+    public boolean canLaunch(int requiredFuel) {
+        return rocketFuel >= requiredFuel;
+    }
 }

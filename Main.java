@@ -66,7 +66,7 @@ public class Main {
             System.out.println("[5] Go Back");
             System.out.print("Enter your choice: ");
             int choice = kbd.nextInt();
-
+            kbd.nextLine();
             switch (choice) {
                 case 1:
                     astronautManager.addAstronaut();
