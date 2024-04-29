@@ -2,8 +2,8 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class FileHandler {
-    private static final String ASTRONAUT_FILE_PATH = "astronauts.txt";
-    private static final String ROCKET_FILE_PATH = "rockets.txt";
+    private static final String ASTRONAUT_FILE_PATH = "astronauts.dat";
+    private static final String ROCKET_FILE_PATH = "rockets.dat";
 
     public static void saveAstronauts(ArrayList<Astronaut> astronauts) {
         try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(ASTRONAUT_FILE_PATH))) {

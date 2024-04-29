@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Password {
-    private static final String PASSWORD_FILE_PATH = "password.txt";
+    private static final String PASSWORD_FILE_PATH = "password.dat";
 
     // Method to check if a password file exists
     public static boolean checkIfPasswordExists() {

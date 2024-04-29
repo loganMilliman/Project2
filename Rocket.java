@@ -29,6 +29,5 @@ public class Rocket {
 
     public void checkInventory() {
         System.out.println("Current Rocket Fuel: " + rocketFuel + " pounds");
-        // Additional inventory checks can be added here
     }
 }

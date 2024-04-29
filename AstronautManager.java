@@ -7,10 +7,6 @@ public class AstronautManager {
     private Scanner scanner;
 
     // Constructor
-    public AstronautManager() {
-        String name = "";
-        
-    }
     public AstronautManager(Scanner scanner) {
         this.astronauts = new ArrayList<>();
         this.scanner = scanner;
@@ -66,7 +62,7 @@ public class AstronautManager {
         }
     }
 
-    // Method to edit astronaut information (for simplicity, let's assume we edit by index)
+    // Method to edit astronaut information
     public void editAstronaut(int index, Astronaut newAstronaut) {
         if (index >= 0 && index < astronauts.size()) {
             astronauts.set(index, newAstronaut);
@@ -89,5 +85,28 @@ public class AstronautManager {
     // Method to get the number of astronauts
     public int getNumberOfAstronauts() {
         return astronauts.size();
+    }
+
+    // Method to view astronaut information
+    public void viewAstronautInformation() {
+        if (astronauts.isEmpty()) {
+            System.out.println("No astronauts to display.");
+            return;
+        }
+
+        System.out.println("Astronaut Information:");
+        for (Astronaut astronaut : astronauts) {
+            System.out.println("Name: " + astronaut.getName());
+            System.out.println("Date of Birth: " + astronaut.getDateOfBirth());
+            System.out.println("ID Number: " + astronaut.getIDnumb());
+            System.out.println("Address: " + astronaut.getAddress());
+            System.out.println("Email: " + astronaut.getEmail());
+            System.out.println("Phone Number: " + astronaut.getPhoneNumb());
+            System.out.println("Next of Kin: " + astronaut.getNextOfKin());
+            System.out.println("Status: " + astronaut.getStatus());
+            System.out.println("Salary: " + astronaut.getSalary());
+            System.out.println("Weight: " + astronaut.getWeight());
+            System.out.println("--------------------------------");
+        }
     }
 }

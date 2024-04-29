@@ -1,8 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    private static AstronautManager astronautManager = new AstronautManager();
-    private static Rocket rocket = new Rocket(1000); // Initial rocket fuel
+    private static Rocket rocket = new Rocket(0);
 
     public static void main(String[] args) {
         Scanner kbd = new Scanner(System.in);
@@ -56,6 +55,8 @@ public class Main {
     }
 
     public static void manageAstronautInformation(Scanner kbd) {
+        AstronautManager astronautManager = new AstronautManager(kbd);
+
         do {
             System.out.println("Astronaut Management Menu:");
             System.out.println("[1] Add Astronaut");
@@ -68,16 +69,17 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    addAstronaut(kbd);
+                    astronautManager.addAstronaut();
                     break;
                 case 2:
-                    removeAstronaut(kbd);
+                    astronautManager.removeAstronaut();
                     break;
                 case 3:
-                    editAstronaut(kbd);
+                    // Placeholder
+                    astronautManager.editAstronaut(0, null);
                     break;
                 case 4:
-                    viewAstronautInformation();
+                    astronautManager.viewAstronautInformation();
                     break;
                 case 5:
                     return;
@@ -87,37 +89,38 @@ public class Main {
         } while (true);
     }
 
-    public static void addAstronaut(Scanner kbd) {
-        // Implement adding astronaut functionality here
-        System.out.println("Adding Astronaut...");
-        // Read astronaut details from user input
-        // Create Astronaut object
-        // Add Astronaut to AstronautManager
-    }
-
-    public static void removeAstronaut(Scanner kbd) {
-        // Implement removing astronaut functionality here
-        System.out.println("Removing Astronaut...");
-        // Prompt user for index of astronaut to remove
-        // Remove astronaut from AstronautManager
-    }
-
-    public static void editAstronaut(Scanner kbd) {
-        // Implement editing astronaut functionality here
-        System.out.println("Editing Astronaut Information...");
-        // Prompt user for index of astronaut to edit
-        // Prompt user for new astronaut information
-        // Update astronaut information using AstronautManager
-    }
-
-    public static void viewAstronautInformation() {
-        // Implement viewing astronaut information functionality here
-        System.out.println("Viewing Astronaut Information...");
-        // Loop through astronauts in AstronautManager and display their information
-    }
-
     public static void manageRocketInformation(Scanner kbd) {
-        // Implement rocket information management functionality here
+        Rocket rocket = new Rocket(0);
+
+        do {
+            System.out.println("Rocket Management Menu:");
+            System.out.println("[1] Add Rocket Fuel");
+            System.out.println("[2] Consume Rocket Fuel");
+            System.out.println("[3] Check Rocket Inventory");
+            System.out.println("[4] Go Back");
+            System.out.print("Enter your choice: ");
+            int choice = kbd.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter amount of fuel to add: ");
+                    int fuelToAdd = kbd.nextInt();
+                    rocket.addRocketFuel(fuelToAdd);
+                    break;
+                case 2:
+                    System.out.print("Enter amount of fuel to consume: ");
+                    int fuelToConsume = kbd.nextInt();
+                    rocket.consumeFuel(fuelToConsume);
+                    break;
+                case 3:
+                    rocket.checkInventory();
+                    break;
+                case 4:
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } while (true);
     }
 
     public static void launchMission(Scanner kbd) {
@@ -141,7 +144,6 @@ public class Main {
     }
 
     public static Astronaut[] createAstronauts(Scanner kbd) {
-        // Implement the functionality to create astronauts for the mission here
         System.out.println("Creating Astronauts...");
         return new Astronaut[0]; // Placeholder return
     }
