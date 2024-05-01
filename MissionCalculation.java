@@ -1,10 +1,6 @@
 import java.text.DecimalFormat;
 
 public class MissionCalculation {
-    private static final double GRAVITY = 9.81; // m/s^2
-    private static final double MAX_ATMOSPHERE_SPEED = 3000; // m/s
-    private static final double ATMOSPHERE_END_ALTITUDE = 70000; // meters
-
     private double altitude;
     private double speed;
     private double fuel;
